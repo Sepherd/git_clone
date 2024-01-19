@@ -2,11 +2,14 @@
 # Clone a git repository
 
 # Check if the user has provided a repository name
-if [ "$#" -eq 0 ]; then
-    echo "Please provide a repository name"
+if [ "$#" -ne 2 ]; then
+    echo "Usage: git_clone.sh <Git User> <Git Repository>"
     exit 1
 fi
 
+# Save values in variables
+user=$1
+repo=$2
+
 # Clone the repository
-repo=$1
-exec git clone git@github.com:Sepherd/$repo.git
+exec git clone git@github.com:$user/$repo.git
